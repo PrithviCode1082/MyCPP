@@ -1,4 +1,4 @@
-#include <iostream>
+#include <stdio.h>
 #include <set>
 
 using namespace std;
@@ -7,18 +7,18 @@ int main() {
     set<int> nums;
     int num, temp;
 
-    cout << "Enter number of elements to sort: ";
-    cin >> num;
+    printf("Enter number of elements to sort: ");
+    scanf("%d", &num);
 
     for (int i = 0; i < num; i++)
     {
-        cout << "Enter " << i+1 << "st element: ";
-        cin >> temp;
+        printf("Enter Element no: %d - ", (i+1));
+        scanf("%d", &temp);
         nums.insert(nums.begin(), temp);
     }
 
     for (int n : nums) {
-        cout << n << "\n";
+        printf("%d\n", n);
     }
     return 0;
 }
