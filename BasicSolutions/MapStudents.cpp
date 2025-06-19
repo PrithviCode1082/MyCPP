@@ -4,23 +4,26 @@
 
 using namespace std;
 
+void getInput(int *tempAge, int i, string *tempName){
+    cout << "Enter " << i + 1 << "st student's name: \n";
+	cin >> *tempName;
+
+	cout << "Enter age: ";
+	cin >> *tempAge;
+}
+
 int main() {
 	int num, tempAge;
 	string tempName;
 
 	map<string, int> students;
 
-	cout << "Enter number of students: ";
-	cin >> num;
+	printf("Enter number of students: ");
+	scanf("%d", &num);
 
 	for (int i = 0; i < num; i++)
 	{
-		cout << "Enter " << i + 1 << "st student's name: \n";
-		cin >> tempName;
-
-		cout << "Enter age: ";
-		cin >> tempAge;
-
+        getInput(&tempAge, i, &tempName);
 		students[tempName] = tempAge;
 	}
 
