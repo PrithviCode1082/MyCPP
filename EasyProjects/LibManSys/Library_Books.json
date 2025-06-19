@@ -1,0 +1,74 @@
+{
+  "books": [
+    {
+      "bookName": "The Shadow of the Wind",
+      "author": "Carlos Ruiz Zafón",
+      "published": "2001",
+      "pages": "487",
+      "no_of_Copies": 5
+    },
+    {
+      "bookName": "The Martian",
+      "author": "Andy Weir",
+      "published": "2011",
+      "pages": "369",
+      "no_of_Copies": 3
+    },
+    {
+      "bookName": "Sapiens: A Brief History of Humankind",
+      "author": "Yuval Noah Harari",
+      "published": "2011",
+      "pages": "443",
+      "no_of_Copies": 7
+    },
+    {
+      "bookName": "1984",
+      "author": "George Orwell",
+      "published": "1949",
+      "pages": "328",
+      "no_of_Copies": 6
+    },
+    {
+      "bookName": "To Kill a Mockingbird",
+      "author": "Harper Lee",
+      "published": "1960",
+      "pages": "281",
+      "no_of_Copies": 4
+    },
+    {
+      "bookName": "Brave New World",
+      "author": "Aldous Huxley",
+      "published": "1932",
+      "pages": "311",
+      "no_of_Copies": 2
+    },
+    {
+      "bookName": "The Alchemist",
+      "author": "Paulo Coelho",
+      "published": "1988",
+      "pages": "208",
+      "no_of_Copies": 10
+    },
+    {
+      "bookName": "The Catcher in the Rye",
+      "author": "J.D. Salinger",
+      "published": "1951",
+      "pages": "277",
+      "no_of_Copies": 3
+    },
+    {
+      "bookName": "Atomic Habits",
+      "author": "James Clear",
+      "published": "2018",
+      "pages": "320",
+      "no_of_Copies": 8
+    },
+    {
+      "bookName": "Dune",
+      "author": "Frank Herbert",
+      "published": "1965",
+      "pages": "412",
+      "no_of_Copies": 6
+    }
+  ]
+}
