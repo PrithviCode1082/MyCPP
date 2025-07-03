@@ -2,11 +2,18 @@
 
 using namespace std;
 
+namespace getLength {
+int length = 0;
+}
+
 struct Node {
 public:
   Node *next = NULL;
   int value;
-  Node(int val) { this->value = val; }
+  Node(int val) {
+    this->value = val;
+    getLength::length++;
+  }
 };
 
 void push(Node *current, int value) {
@@ -22,6 +29,7 @@ void push(Node *current, int value) {
 
 Node *removeElement(Node *current, int value) {
   if (current->value == value) {
+    getLength::length--;
     return current->next == nullptr ? NULL : current->next;
   }
   Node *head = current;
@@ -34,6 +42,7 @@ Node *removeElement(Node *current, int value) {
       current->next =
           (current->next->next != nullptr ? current->next->next : NULL);
       delete temp;
+      getLength::length--;
       break;
     }
     current = current->next;
@@ -77,7 +86,8 @@ Node *insert(Node *current, int index, int value) {
 
 void menu() {
   cout << "\n***** MENU *****\n";
-  cout << "1 - push\n2 - Insert\n3 - delete\n4 - Iterate\n5 - Exit\n";
+  cout << "1 - push\n2 - Insert\n3 - delete\n4 - Iterate\n5 - Get Length\n6 - "
+          "Exit\n";
   return;
 }
 
@@ -118,6 +128,9 @@ int main() {
       break;
     case 4:
       iterate(head);
+      break;
+    case 5:
+      cout << "Total length is: " << getLength::length << endl;
       break;
     default:
       // Clean memory
