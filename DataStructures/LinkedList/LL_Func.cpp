@@ -21,30 +21,20 @@ void push(Node *current, int value) {
 }
 
 Node *removeElement(Node *current, int value) {
-  Node *head = current;
   if (current->value == value) {
-    return current->next;
-    delete head;
+    return current->next == nullptr ? NULL : current->next;
   }
-
+  Node *head = current;
   Node *temp;
   while (current != nullptr) {
-    if (current->next != nullptr) {
-      if (current->next->value == value) {
-        if (current->next->next != nullptr) {
-          temp = current->next;
-          current->next = current->next->next;
-          delete temp;
-          break;
-        }
-        if (current->next->next == nullptr) {
-          temp = current->next;
-          current->next = NULL;
-          delete temp;
-          break;
-        }
-        cout << "True\n";
-      }
+    if (current->next != nullptr && current->next->value == value) {
+      temp = current->next;
+      // making current node link to next->next node -> Node present after next
+      // or NULL
+      current->next =
+          (current->next->next != nullptr ? current->next->next : NULL);
+      delete temp;
+      break;
     }
     current = current->next;
   }
@@ -63,9 +53,9 @@ void iterate(Node *current) {
 Node *insert(Node *current, int index, int value) {
   Node *head = current;
   if (index == 0) {
-    Node *head = new Node(value);
-    head->next = current;
-    return head;
+    Node *newHead = new Node(value);
+    newHead->next = current;
+    return newHead;
   }
   int i = 0;
   while (current != nullptr) {
@@ -101,7 +91,6 @@ int main() {
   Node *temp;
   ask("Add a head to linked list: ", headVal);
 
-
   Node *head = new Node(headVal);
 
   while (true) {
@@ -122,6 +111,10 @@ int main() {
     case 3:
       ask("Enter a value: ", headVal);
       head = removeElement(head, headVal);
+      if (head == nullptr) {
+        ask("Linked List is deleted!\nAdd a head to linked list: ", headVal);
+        head = new Node(headVal);
+      }
       break;
     case 4:
       iterate(head);
