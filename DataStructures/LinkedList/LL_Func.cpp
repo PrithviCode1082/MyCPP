@@ -61,6 +61,11 @@ void iterate(Node *current) {
 
 Node *insert(Node *current, int index, int value) {
   Node *head = current;
+  if (index > getLength::length) {
+    cout << "Index doesn't exist. List only has " << getLength::length
+         << " Elements.\n";
+    return head;
+  }
   if (index == 0) {
     Node *newHead = new Node(value);
     newHead->next = current;
