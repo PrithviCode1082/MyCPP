@@ -14,6 +14,7 @@ public:
     this->value = val;
     getLength::length++;
   }
+  ~Node() { getLength::length--; }
 };
 
 void push(Node *current, int value) {
@@ -29,7 +30,6 @@ void push(Node *current, int value) {
 
 Node *removeElement(Node *current, int value) {
   if (current->value == value) {
-    getLength::length--;
     return current->next == nullptr ? NULL : current->next;
   }
   Node *head = current;
@@ -42,7 +42,7 @@ Node *removeElement(Node *current, int value) {
       current->next =
           (current->next->next != nullptr ? current->next->next : NULL);
       delete temp;
-      getLength::length--;
+      // getLength::length--;
       break;
     }
     current = current->next;
