@@ -1,29 +1,27 @@
-#include <cstddef>
 #include <iostream>
 
 using namespace std;
 
 struct Node {
   int value;
-  Node *next = NULL;
-
-  void printValue() { cout << value << " "; }
+  Node *next = nullptr;
+  Node(int val) : value(val){};
 };
 
 int main() {
-  Node *head = new Node;
-  head->value = 6;
-
-  head->next = new Node;
-  head->next->value = 7;
-
-  head->next->next = new Node;
-  head->next->next->value = 8;
-
+  Node *head = new Node(6);
   Node *current = head;
+  for (int num: {7, 8, 9, 10}) {
+      current->next = new Node(num);
+      current = current->next;
+  }
+  current = head;
+  Node *temp;
   while (current != nullptr) {
-    current->printValue();
+    cout << current->value << " ";
+    temp = current;
     current = current->next;
+    delete temp;
   }
   return 0;
 }
