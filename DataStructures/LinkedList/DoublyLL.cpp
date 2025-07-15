@@ -22,6 +22,14 @@ Node* pop(Node* head, Node*tail) {
         len::length--;
         return NULL;
     }
+    else if (head == NULL) {
+        cout << "Head doesn't exist\n";
+        return NULL;
+    }
+    else if (head != NULL && tail == NULL) {
+        len::length--;
+        return NULL;
+    }
     else {
         Node* current = head->next;
         current->previous = NULL;
@@ -35,6 +43,14 @@ Node* shift(Node* head, Node* tail) {
     if (len::length == 2) {
         head->next = NULL;
         delete tail;
+        len::length--;
+        return NULL;
+    }
+    else if (tail == NULL) {
+        cout << "Tail doesn't exist\n";
+        return NULL;
+    }
+    else if (head == NULL && tail != NULL) {
         len::length--;
         return NULL;
     }
@@ -109,7 +125,15 @@ int main() {
         if (choice == 1) {
             cout << "Enter a new value: ";
             cin >> val;
-            if (head != nullptr && tail == nullptr) {
+            if (head == NULL)
+            {
+                head = new Node(val);
+                head->next = tail;
+                if (tail != nullptr) {
+                    tail->previous = head;
+                } 
+            }
+            else if (head != nullptr && tail == nullptr) {
                 tail = head;
                 Node *newNode = new Node(val);
                 head = newNode;
@@ -124,7 +148,15 @@ int main() {
         else if (choice == 2) {
             cout << "Enter a new value: ";
             cin >> val;
-            if (head == nullptr && tail != nullptr)
+            if (tail == NULL)
+            {
+                tail = new Node(val);
+                tail->previous = head;
+                if (head != nullptr) {
+                    head->next = tail;
+                }
+            }
+            else if (head == nullptr && tail != nullptr)
             {
                 head = tail;
                 Node* newNode = new Node(val);
@@ -154,6 +186,9 @@ int main() {
                 }
                 cout << "\n";
             }
+            else if (tail == NULL) {
+                cout << "List has 0 elements\n";
+            }
             else {
                 cout << tail->value << "\n";
             }
@@ -167,6 +202,9 @@ int main() {
                     current = current->previous;
                 }
                 cout << "\n";
+            }
+            else if (head == NULL) {
+                cout << "List has 0 elements\n";
             }
             else {
                 cout << head->value << endl;
@@ -187,5 +225,5 @@ int main() {
         cout << "**************************************************\n";
     }
 
-    // return 0;
+     //return 0;
 }
