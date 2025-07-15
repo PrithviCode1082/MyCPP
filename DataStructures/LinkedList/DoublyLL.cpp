@@ -24,6 +24,7 @@ Node* pop(Node* head, Node*tail) {
     }
     else {
         Node* current = head->next;
+        current->previous = NULL;
         delete head;
         len::length--;
         return current;
@@ -39,6 +40,7 @@ Node* shift(Node* head, Node* tail) {
     }
     else {
         Node* current = tail->previous;
+        current->next = NULL;
         delete tail;
         len::length--;
         return current;
