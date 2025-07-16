@@ -21,7 +21,7 @@ Node* pop_shift(Node* h_node, Node* t_node, int op){
         len::length--;
         return NULL;
     } else if((op == 1 && h_node==NULL) || (op == 2 && t_node==NULL)){
-        cout << ((op == 1) ? "Head Doesn't exist" : "Tail Doesn't exist");
+        cout << ((op == 1) ? "Head Doesn't exist\n" : "Tail Doesn't exist\n");
         return NULL;
     } else if((op==1 && h_node != NULL && t_node == NULL) || (op==2 && h_node == NULL && t_node != NULL)){
         len::length--;
@@ -39,7 +39,7 @@ Node* prepend_append(Node *h_node, Node *t_node, int value, int op){
     Node *newNode = new Node(value);
     if ((op == 1 && h_node == NULL) || (op == 2 && t_node == NULL)) {
         if (op == 1) {newNode->next = t_node;} else {newNode->previous = h_node;}
-        if (op ==1) {t_node->previous = newNode;} else {h_node->next = newNode;}
+        if (op == 1 && t_node != NULL) {t_node->previous = newNode;} else if(op == 2 && h_node != NULL) {h_node->next = newNode;}
         return newNode;
     } else if(h_node == NULL && t_node == NULL) {return newNode;}
     else{
@@ -81,53 +81,11 @@ int main() {
     while (true) {
         menu();
         cin >> choice;
-        if (choice == 1) {
+        if (choice == 1 || choice == 2) {
             cout << "Enter a new value: ";
             cin >> val;
-            if (head == NULL)
-            {
-                head = new Node(val);
-                head->next = tail;
-                if (tail != nullptr) {
-                    tail->previous = head;
-                }
-            }
-            else if (head != nullptr && tail == nullptr) {
-                tail = head;
-                Node *newNode = new Node(val);
-                head = newNode;
-                tail->next = NULL;
-                tail->previous = head;
-                head->next = tail;
-            }
-            else {
-                head = prepend_append(head, tail, val, 1);
-            }
-        }
-        else if (choice == 2) {
-            cout << "Enter a new value: ";
-            cin >> val;
-            if (tail == NULL)
-            {
-                tail = new Node(val);
-                tail->previous = head;
-                if (head != nullptr) {
-                    head->next = tail;
-                }
-            }
-            else if (head == nullptr && tail != nullptr)
-            {
-                head = tail;
-                Node* newNode = new Node(val);
-                tail = newNode;
-                head->next = tail;
-                head->previous = NULL;
-                tail->next = NULL;
-                tail->previous = head;
-            }
-            else {
-                tail = prepend_append (head, tail, val, 2);
-            }
+            if (choice == 1) {head = prepend_append(head, tail, val, 1);}
+            else{tail = prepend_append (head, tail, val, 2);}
         }
         else if (choice == 3) {
             head = pop_shift(head, tail, 1);
@@ -135,11 +93,8 @@ int main() {
         else if (choice == 4) {
             tail = pop_shift(head, tail, 2);
         }
-        else if (choice == 5) {
-            traverse(head, current, tail, 1);
-        }
-        else if (choice == 6) {
-            traverse(tail, current, head, 2);
+        else if (choice == 5 || choice == 6) {
+            traverse((choice == 5) ? head : tail, current, (choice == 5) ? tail : head, (choice == 5) ? 1 : 2);
         }
         else if (choice == 7) {
             cout << "Length of List is: " << len::length << "\n";
