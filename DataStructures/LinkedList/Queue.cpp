@@ -23,7 +23,25 @@ Node* push(Node *head, Node *tail, int value) {
 }
 
 void pop(Node *head, Node *tail) {
-
+    if (head == tail)
+    {
+        head = NULL;
+        tail = NULL;
+        len::length--;
+    }
+    else if (head == NULL && tail == NULL) {
+        cout << "NULL\n";
+    }
+    else {
+        if (head!=NULL)
+        {
+            Node* current;
+            current = head;
+            head = head->next;
+            delete current;
+        }
+        len::length--;
+    }
 }
 
 static void Traverse(Node *head, Node *tail) {
