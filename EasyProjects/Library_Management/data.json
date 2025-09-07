@@ -1,0 +1,82 @@
+[
+    {
+        "name": "To Kill a Mockingbird",
+        "author": "Harper Lee",
+        "published": 1960,
+        "pages": 281,
+        "genre": "Fiction",
+        "stock": 12
+    },
+    {
+        "name": "1984",
+        "author": "George Orwell",
+        "published": 1949,
+        "pages": 328,
+        "genre": "Dystopian",
+        "stock": 8
+    },
+    {
+        "name": "The Great Gatsby",
+        "author": "F. Scott Fitzgerald",
+        "published": 1925,
+        "pages": 180,
+        "genre": "Classic",
+        "stock": 5
+    },
+    {
+        "name": "The Catcher in the Rye",
+        "author": "J.D. Salinger",
+        "published": 1951,
+        "pages": 234,
+        "genre": "Literary Fiction",
+        "stock": 7
+    },
+    {
+        "name": "Pride and Prejudice",
+        "author": "Jane Austen",
+        "published": 1813,
+        "pages": 279,
+        "genre": "Romance",
+        "stock": 10
+    },
+    {
+        "name": "The Hobbit",
+        "author": "J.R.R. Tolkien",
+        "published": 1937,
+        "pages": 310,
+        "genre": "Fantasy",
+        "stock": 15
+    },
+    {
+        "name": "Fahrenheit 451",
+        "author": "Ray Bradbury",
+        "published": 1953,
+        "pages": 194,
+        "genre": "Science Fiction",
+        "stock": 6
+    },
+    {
+        "name": "Moby-Dick",
+        "author": "Herman Melville",
+        "published": 1851,
+        "pages": 635,
+        "genre": "Adventure",
+        "stock": 4
+    },
+    {
+        "name": "The Lord of the Rings",
+        "author": "J.R.R. Tolkien",
+        "published": 1954,
+        "pages": 1178,
+        "genre": "Fantasy",
+        "stock": 20
+    },
+    {
+        "name": "The Da Vinci Code",
+        "author": "Dan Brown",
+        "published": 2003,
+        "pages": 489,
+        "genre": "Thriller",
+        "stock": 9
+    }
+]
