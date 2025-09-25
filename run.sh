@@ -5,7 +5,7 @@
 if [ ! -f main ] || [ main.cpp -nt main ]; then
     echo "🛠️ Compiling with clang++..."
     start_time=$(date +%s.%N)
-    
+
     if clang++ main.cpp -o main -std=c++17 -O2; then
         end_time=$(date +%s.%N)
         compile_time=$(echo "$end_time - $start_time" | bc)
@@ -23,7 +23,6 @@ fi
 
 
 # If you're using g++
-You said:
 if [ ! -f main ] || [ main.cpp -nt main ]; then
         echo "Compiling..."
         start_time=$(date +%s.%N)
