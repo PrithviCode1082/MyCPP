@@ -54,7 +54,8 @@ public:
   }
 
   void addUser(string name) {
-    cout << "Do you want to create an account with a Pro membership? Tap 1 for yes, "
+    cout << "Do you want to create an account with a Pro membership? Tap 1 for "
+            "yes, "
             "or any other number for no: ";
     cin >> temp;
     User user(name);
